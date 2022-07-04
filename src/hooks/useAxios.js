@@ -10,7 +10,7 @@ const useAxios = (baseUrl, initalState = []) => {
 		setState((state) => [...state, { ...response.data, id: uuid() }]);
 	};
 	const resetState = () => {
-		setState(() => initalState);
+		setState(initalState);
 	};
 	return [state, addToState, resetState];
 };
