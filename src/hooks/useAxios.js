@@ -9,7 +9,10 @@ const useAxios = (baseUrl, initalState = []) => {
 		const response = await axios.get(fullUrl);
 		setState((state) => [...state, { ...response.data, id: uuid() }]);
 	};
-	return [state, addToState];
+	const resetState = () => {
+		setState(() => initalState);
+	};
+	return [state, addToState, resetState];
 };
 
 export default useAxios;
